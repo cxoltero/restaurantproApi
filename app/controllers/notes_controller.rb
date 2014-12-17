@@ -20,9 +20,9 @@ class NotesController < ApplicationController
 	end
 
 	def create
-		@note = Note.new(note_params)
+		@note = Note.new(params[:id])
 		if @note.save
-			redirect_to @note, notice: "Succesfully created new note"
+			render json: @note, status: :created, location: @note
 		else
 			render json: @note.errors, status: :unprocessable_entity
 		end

@@ -12,6 +12,9 @@ gem 'cocoon', '~> 1.2.6'
 gem 'devise'
 gem 'pry-rails', '~> 0.3.2'
 
+gem 'factory_girl'
+gem 'rspec-rails', '~> 3.1.0'
+
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta2'
