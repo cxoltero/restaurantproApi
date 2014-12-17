@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
 		@image = Image.find(params[:id])
 	end
 	def create
-		@image = Image.create(image_params)
+		@image = Image.create(params[:id])
 	end
 	def destroy
 		@image = Image.find(params[:id])

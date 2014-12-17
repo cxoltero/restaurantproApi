@@ -3,11 +3,13 @@ before_action :find_list, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@lists= List.all.order("created_at DESC")
-		render json: @lists, :include => [:tasks]
+		render json: @lists
+		# , :include => [:tasks]
 	end
 	
 	def show
-		render json: @list, :include => [:tasks]
+		render json: @list
+		# , :include => [:tasks]
 	end
 	
 	def new
@@ -23,7 +25,6 @@ before_action :find_list, only: [:show, :edit, :update, :destroy]
 		else
 			render json: @list.errors, status: :unprocessable_entity
 		end
-
 	end
 
 	def edit

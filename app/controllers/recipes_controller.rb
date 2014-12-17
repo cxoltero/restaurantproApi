@@ -3,7 +3,8 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
 def index
 	@recipes = Recipe.all.order("created_at DESC")
-	render json: @recipes, :include => [:image]
+	render json: @recipes
+	# , :include => [:image]
 end
 
 def new
@@ -12,7 +13,8 @@ def new
 end
 
 def show
-	render json: @recipe, :include => [:image]
+	render json: @recipe
+	# , :include => [:image]
 end
 
 def create

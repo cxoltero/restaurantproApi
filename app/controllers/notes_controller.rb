@@ -20,7 +20,7 @@ class NotesController < ApplicationController
 	end
 
 	def create
-		@note = Note.new(params[:id])
+		@note = Note.new(note_params)
 		if @note.save
 			render json: @note, status: :created, location: @note
 		else
@@ -49,6 +49,6 @@ class NotesController < ApplicationController
 	end
 
 	def note_params
-		params.require(:note).permit(:title)
+		params.require(:note).permit(:title, :content)
 	end
 end

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 	def create
-		@task = Task.new(params[:id])
+		@task = Task.new(task_params)
 		if @task.save
 			render json: @task, status: :created, location: @task
 		else
