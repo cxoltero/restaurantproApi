@@ -3,7 +3,7 @@ before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
 def index
 	@recipes = Recipe.all.order("created_at DESC")
-	render json: @recipes
+	render json: @recipes, :include => [:image]
 end
 
 def new
@@ -12,7 +12,7 @@ def new
 end
 
 def show
-	render json: @recipe
+	render json: @recipe, :include => [:image]
 end
 
 def create
@@ -38,7 +38,6 @@ end
 
 def destroy
 	@recipe.destroy
-	redirect_to root_path, notice: "Succesfully deleted recipe!"
 	head :no_content
 end
 
